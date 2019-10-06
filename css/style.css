@@ -1,0 +1,105 @@
+@font-face {
+  font-family: "Roboto";
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("fonts/Roboto.woff2") format("woff2"),
+      url("fonts/Roboto.woff") format("woff"),
+      url("fonts/Roboto.eot?#iefix") format("embedded-opentype");
+}
+
+@font-face {
+  font-family: "Roboto-Bold";
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url("../fonts/Roboto-Bold.woff2") format("woff2"),
+      url("../fonts/Roboto-Bold.woff") format("woff"),
+      url("../fonts/Roboto-Bold.eot?#iefix") format("embedded-opentype");
+}
+
+body {
+  background: #e8e7e7;
+}
+
+.main {
+  display: flex;
+  margin: 0 auto;
+  justify-content: center;
+  align-items: center;
+  max-width: 1440px;
+  height: 1024px;
+  background: #F4F4F4;
+  box-shadow: 0 5px 15px 0 rgba(0, 1, 1, 0.2);
+}
+
+.main-button {
+  width: 200px;
+  height: 40px;
+  background: #558CB7;
+  border: none;
+  border-radius: 3px;
+  font-family: "Roboto-Bold", "Arial", sans-serif;;
+  font-size: 14px;
+  line-height: 16px;
+  color: #ffffff;
+  cursor: pointer;
+}
+
+.main-button:hover {
+  box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.4);
+}
+
+.main-button:focus {
+  box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.4);
+  outline: none;
+}
+
+.main-button:disabled {
+  background: #82B3D9;
+}
+
+.modal {
+	position: fixed;
+	margin: auto;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+}
+
+.modal-registration {
+	/*display: none;*/
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: stretch;
+  width: 481px;
+  height: 700px;
+	padding: 67px 96px 0 100px;
+	background-color:#ffffff;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+  border-radius: 3px;
+}
+
+.modal-show {
+	display: block;
+}
+
+.modal-close {
+	position: absolute;
+	width: 25px;
+	height: 25px;
+	margin: 0;
+	padding: 0;
+	right: 60px;
+	border: none;
+  fill: #C4C4C4;
+  background: none;
+	outline: none;
+	cursor: pointer;
+}
+
+.modal-close:hover {
+	fill: #558CB7;
+}

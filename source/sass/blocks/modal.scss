@@ -1,0 +1,137 @@
+.modal {
+	position: absolute;
+	margin: auto;
+	top: 0;
+	left: 0;
+	right: 0;
+}
+
+.modal-registration {
+	/*display: none;*/
+  width: 481px;
+  height: 700px;
+	padding: 40px;
+	background-color:#ffffff;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+  border-radius: 3px;
+}
+
+.modal-show {
+	display: block;
+}
+
+.modal-title {
+  margin: 0;
+  padding-bottom: 30px;
+  font-family: $font-primary;
+  font-size: 24px;
+  line-height: 28px;
+  color: #000000;
+}
+
+.modal-close {
+	position: absolute;
+	width: 25px;
+	height: 25px;
+	margin: 0;
+	padding: 0;
+  top: 45px;
+	right: 55px;
+	border: none;
+  fill: #C4C4C4;
+  background: none;
+	outline: none;
+	cursor: pointer;
+
+  &:hover {
+    fill: #558CB7;
+  }
+}
+
+.modal-form {
+  display: flex;
+  flex-direction: column;
+}
+
+.modal-label {
+  padding-bottom: 10px;
+  font-family: $font-secondary;
+  font-size: 14px;
+  line-height: 16px;
+  color: #333333;
+}
+
+.modal-input {
+  height: 40px;
+  margin-bottom: 30px;
+  padding-left: 20px;
+  padding-right: 20px;
+  font-family: $font-primary;
+  font-size: 14px;
+  line-height: 16px;
+  color: #000000;
+  border: 1px solid #DDDDDD;
+  box-sizing: border-box;
+
+  &:focus {
+    border: 1px solid #82B3D9;
+  }
+
+  &--password {
+    margin-bottom: 5px;
+  }
+}
+
+.modal-description {
+  margin: 0;
+  padding-bottom: 5px;
+  font-family: $font-secondary;
+  font-size: 14px;
+  line-height: 16px;
+  color: #777777;
+}
+
+.modal-list {
+  margin: 0;
+  padding: 0;
+  padding-bottom: 3px;
+  font-family: $font-primary;
+  font-size: 12px;
+  line-height: 14px;
+  color: #777777;
+  list-style: none;
+
+  &--item {
+    padding-bottom: 4px;
+  }
+}
+
+.modal-caution {
+  margin: 0;
+  padding-bottom: 18px;
+  font-family: $font-primary;
+  font-size: 12px;
+  line-height: 14px;
+  color: #9F2B11;
+}
+
+.modal-checkbox {
+  padding-bottom: 30px;
+  font-family: $font-primary;
+  font-size: 12px;
+  line-height: 14px;
+  color: #000000;
+}
+
+.modal-checkbox__link {
+  text-decoration: none;
+  color: #82B3D9;
+
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
+.modal-button {
+  align-self: center;
+}

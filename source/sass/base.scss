@@ -1,0 +1,30 @@
+body {
+  margin: 0;
+  background: #e8e7e7;
+}
+
+.button {
+  width: 200px;
+  height: 40px;
+  background: #558CB7;
+  border: none;
+  border-radius: 3px;
+  font-family: $font-secondary;
+  font-size: 14px;
+  line-height: 16px;
+  color: #ffffff;
+  cursor: pointer;
+
+  &:hover {
+    box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.4);
+  }
+
+  &:focus {
+    box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.4);
+    outline: none;
+  }
+
+  &:disabled {
+    background: #82B3D9;
+  }
+}

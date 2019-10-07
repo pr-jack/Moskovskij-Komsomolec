@@ -1,0 +1,63 @@
+{
+  "name": "Moskovskij-Komsomolec",
+  "private": true,
+  "description": "Moskovskij-Komsomolec",
+  "devDependencies": {
+    "@htmlacademy/editorconfig-cli": "1.x",
+    "autoprefixer": "9.1.x",
+    "browser-sync": "2.24.x",
+    "del": "^3.0.0",
+    "gulp": "4.0.x",
+    "gulp-csso": "^3.0.1",
+    "gulp-imagemin": "^4.1.0",
+    "gulp-plumber": "1.2.x",
+    "gulp-postcss": "8.0.x",
+    "gulp-posthtml": "^3.0.4",
+    "gulp-rename": "^1.4.0",
+    "gulp-sass": "4.0.x",
+    "gulp-svgstore": "^7.0.0",
+    "gulp-uglify": "^3.0.1",
+    "gulp-webp": "^3.0.0",
+    "posthtml-include": "^1.2.0",
+    "stylelint": "9.6.x",
+    "stylelint-config-htmlacademy": "0.1.x"
+  },
+  "scripts": {
+    "editorconfig": "editorconfig-cli",
+    "stylelint": "stylelint \"source/sass/**/*.scss\" --syntax scss",
+    "test": "npm run editorconfig && npm run stylelint",
+    "build": "gulp build",
+    "start": "gulp start"
+  },
+  "browserslist": [
+    "last 2 versions",
+    "IE 11",
+    "Firefox ESR"
+  ],
+  "editorconfig-cli": [
+    "*.json",
+    "*.js",
+    "source/*.html",
+    "source/js/**/*.js",
+    "source/img/**/*.svg",
+    "source/sass/**/*.{sass,scss}"
+  ],
+  "engines": {
+    "node": "8.12"
+  },
+  "dependencies": {
+    "axios": "^0.19.0",
+    "braces": "^3.0.2",
+    "deep-extend": "^0.6.0",
+    "fstream": "^1.0.12",
+    "js-yaml": "^3.13.1",
+    "lodash": "^4.17.15",
+    "lodash.merge": "^4.6.2",
+    "lodash.mergewith": "^4.6.2",
+    "lodash.template": "^4.5.0",
+    "merge": "^1.2.1",
+    "mixin-deep": "^2.0.1",
+    "set-value": "^3.0.1",
+    "tar": "^4.4.13"
+  }
+}

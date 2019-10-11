@@ -116,7 +116,7 @@
 }
 
 .modal-checkbox {
-  padding-bottom: 30px;
+  margin-bottom: 30px;
   font-family: $font-primary;
   font-size: 12px;
   line-height: 14px;
@@ -129,6 +129,48 @@
 
   &:hover {
     text-decoration: underline;
+  }
+}
+
+.modal-checkbox__input {
+  position: absolute;
+  z-index: -1;
+  opacity: 0;
+
+  &:checked + label:before {
+    background: #558CB7
+  }
+
+  &:focus + label:before {
+    border: 1px solid #558CB7;
+  }
+}
+
+.modal-checkbox__input + label {
+  position: relative;
+  cursor: pointer;
+  padding-left: 20px;
+
+  &::before {
+    position: absolute;
+    left: 0;
+    content: "";
+    width: 12px;
+    height: 12px;
+    border-radius: 3px;
+    border: 1px solid #dddddd;
+  }
+
+  &::after {
+    position: absolute;
+    left: 3px;
+    bottom: 5px;
+    content: "";
+    width: 6px;
+    height: 3px;
+    border-left: 2px solid #ffffff;
+    border-bottom: 2px solid #ffffff;
+    transform: rotate(-45deg);
   }
 }
 

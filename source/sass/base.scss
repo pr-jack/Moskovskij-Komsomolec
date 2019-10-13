@@ -24,7 +24,12 @@ body {
     outline: none;
   }
 
-  &:disabled {
+  &[disabled] {
     background: #82B3D9;
+    cursor: default;
+
+    &:hover {
+      box-shadow: none;
+    }
   }
 }

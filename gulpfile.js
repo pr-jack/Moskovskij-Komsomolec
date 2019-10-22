@@ -56,12 +56,6 @@ gulp.task("clean", function () {
   return del("build");
 });
 
-gulp.task("compress", function () {
-  return gulp.src("source/js/*.js")
-    .pipe(uglify())
-    .pipe(gulp.dest("build/js"));
-});
-
 gulp.task("html", function () {
   return gulp.src("source/*.html")
     .pipe(posthtml([
@@ -70,5 +64,5 @@ gulp.task("html", function () {
  .pipe(gulp.dest("build"));
 });
 
-gulp.task("build", gulp.series("clean", "copy", "compress", "css", "html"));
+gulp.task("build", gulp.series("clean", "copy", "css", "html"));
 gulp.task("start", gulp.series("build", "server"));

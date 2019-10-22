@@ -1,23 +1,22 @@
 'use strict';
 
 (function () {
-  var form  = document.querySelector('.modal-form')[0];
-  var email = document.querySelector('#user-email');
+  var form  = document.querySelector('.modal-form');
+  var email = document.querySelector('#user_email');
   var nikname = document.querySelector('#user-name');
-  var error = document.querySelector('.error');
+  var errorMessage;
 
-  email.addEventListener('input', function (evt) {
-    if (email.validity.valid) {
-      error.innerHTML = "";
-      error.className = "error";
-    }
-  }, false);
+  var validateEmail = function () {
+    var emailRegExp = /^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
 
-  form.addEventListener("submit", function (evt) {
-    if (!email.validity.valid) {
-      error.innerHTML = "I expect an e-mail, darling!";
-      error.className = "error active";
-      event.preventDefault();
+    if(emailRegExp.test(email) == false) {
+      errorMessage = 'Введите валидный адрес электроноой почты'
+      email.setCustomValidity(errorMessage);
+      email.style.border = '2px solid red';
+      console.log(emailRegExp);
     }
-  }, false);
+    return;
+  }
+
+  email.addEventListener('input', validateEmail);
 })();

@@ -1,22 +1,50 @@
-'use strict';
+function CustomValidation() { }
 
-(function () {
-  var form  = document.querySelector('.modal-form');
-  var email = document.querySelector('#user_email');
-  var nikname = document.querySelector('#user-name');
-  var errorMessage;
+var nikName = document.querySelector('#user-name');
+var submit = document.querySelector('.modal-button');
 
-  var validateEmail = function () {
-    var emailRegExp = /^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
+CustomValidation.prototype = {
 
-    if(emailRegExp.test(email) == false) {
-      errorMessage = 'Введите валидный адрес электроноой почты'
-      email.setCustomValidity(errorMessage);
-      email.style.border = '2px solid red';
-      console.log(emailRegExp);
+  invalidities: [],
+
+  checkValidity: function(nikName) {
+
+    var validity = nikName.validity;
+
+    if (validity.patternMismatch) {
+      this.addInvalidity('Никнейм должен состоять и латинских букв, цифр и символов "_" и ";"');
     }
-    return;
-  }
 
-  email.addEventListener('input', validateEmail);
-})();
+    if (validity.rangeOverflow) {
+      var max = getAttributeValue(input, 'max');
+      this.addInvalidity('The maximum value should be ' + max);
+    }
+
+    if (validity.rangeUnderflow) {
+      var min = getAttributeValue(input, 'min');
+      this.addInvalidity('The minimum value should be ' + min);
+    }
+  },
+
+  // Добавляем сообщение об ошибке в массив ошибок
+  addInvalidity: function(message) {
+    this.invalidities.push(message);
+  },
+
+  // Получаем общий текст сообщений об ошибках
+  getInvalidities: function() {
+    return this.invalidities.join('. \n');
+  }
+};
+
+// Добавляем обработчик клика на кнопку отправки формы
+submit.addEventListener('click', function(evt) {
+
+  if (nikName.checkValidity() == false) {
+
+    var inputCustomValidation = new CustomValidation();
+    inputCustomValidation.checkValidity(nikName);
+    var customValidityMessage = inputCustomValidation.getInvalidities();
+    nikName.setCustomValidity(customValidityMessage);
+  }
+});

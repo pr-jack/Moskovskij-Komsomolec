@@ -1,50 +1,38 @@
-function CustomValidation() { }
+'use strict';
 
-var nikName = document.querySelector('#user-name');
-var submit = document.querySelector('.modal-button');
+(function () {
+  // Валидация Никнейма
 
-CustomValidation.prototype = {
+  var MAX_NIKAME_LENGTH = 40;
+  var MIN_NIKAME_LENGTH = 3;
+  var nikName = document.querySelector('#user-name');
 
-  invalidities: [],
 
-  checkValidity: function(nikName) {
+  var validateNikName = function () {
+    var nikNameValue = nikName.value;
+    var nikNameFirstSimbol = nikNameValue.charAt(0);
+    var errorMessage;
+    var legalSimbol = /[/w/d;]/;
+    var legalFirstSimbol = /[A-Za-z]/;
 
-    var validity = nikName.validity;
-
-    if (validity.patternMismatch) {
-      this.addInvalidity('Никнейм должен состоять и латинских букв, цифр и символов "_" и ";"');
+    if (!nikNameFirstSimbol.match(legalFirstSimbol)) {
+      errorMessage = 'Никнейм может начинаться только с буквы';
+    } else if (nikNameValue.length < MIN_NIKAME_LENGTH) {
+      errorMessage = 'Никнейм не может быть меньше чем 3 символа';
+    } else if (nikNameValue.length > MAX_NIKAME_LENGTH) {
+      errorMessage = 'Никнейм не может быть больше чем 40 символов';
+    } else if (!nikNameValue.match(legalSimbol)) {
+      errorMessage = 'Никнейм может содержать только латинские буквы и символы "_" и ";"';
     }
 
-    if (validity.rangeOverflow) {
-      var max = getAttributeValue(input, 'max');
-      this.addInvalidity('The maximum value should be ' + max);
+    if (errorMessage) {
+      nikName.setCustomValidity(errorMessage);
+      nikName.style.border = '1px solid #9F2B11';
+    } else {
+      nikName.style.border = '1px solid #DDDDDD';
+      nikName.setCustomValidity('');
     }
+  };
 
-    if (validity.rangeUnderflow) {
-      var min = getAttributeValue(input, 'min');
-      this.addInvalidity('The minimum value should be ' + min);
-    }
-  },
-
-  // Добавляем сообщение об ошибке в массив ошибок
-  addInvalidity: function(message) {
-    this.invalidities.push(message);
-  },
-
-  // Получаем общий текст сообщений об ошибках
-  getInvalidities: function() {
-    return this.invalidities.join('. \n');
-  }
-};
-
-// Добавляем обработчик клика на кнопку отправки формы
-submit.addEventListener('click', function(evt) {
-
-  if (nikName.checkValidity() == false) {
-
-    var inputCustomValidation = new CustomValidation();
-    inputCustomValidation.checkValidity(nikName);
-    var customValidityMessage = inputCustomValidation.getInvalidities();
-    nikName.setCustomValidity(customValidityMessage);
-  }
-});
+  nikName.addEventListener('input', validateNikName);
+})();

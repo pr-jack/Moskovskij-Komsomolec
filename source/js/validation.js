@@ -35,4 +35,39 @@
   };
 
   nikName.addEventListener('input', validateNikName);
+
+  // Валидация пароля
+
+  var MAX_PASSWORD_LENGTH = 32;
+  var MIN_PASSWORD_LENGTH = 6;
+  var password = document.querySelector('#user-password');
+
+  var validatePassword = function () {
+    var passwordValue = password.value;
+    var errorMessage;
+    var digits = /[/d]/;
+    var upperCaseSimbol = /[A-Z]/;
+    var lowerCaseSimbol = /[a-z]/;
+
+    if (passwordValue.length < MIN_PASSWORD_LENGTH) {
+      errorMessage = 'Пароль не может быть меньше чем 6 символов';
+    } else if (passwordValue.length > MAX_PASSWORD_LENGTH) {
+      errorMessage = 'Пароль не может быть больше чем 36 символов';
+    } else if (!passwordValue.match(upperCaseSimbol)) {
+      errorMessage = 'Пароль должен содержать минимум одну заглавную букву';
+    } else if (!passwordValue.match(lowerCaseSimbol)) {
+      errorMessage = 'Пароль должен содержать минимум одну прописную букву';
+    } else if (!passwordValue.match(digits)) {
+      errorMessage = 'Пароль должен содержать минимум одну цифру';
+
+    if (errorMessage) {
+      password.setCustomValidity(errorMessage);
+      password.style.border = '1px solid #9F2B11';
+    } else {
+      password.style.border = '1px solid #DDDDDD';
+      password.setCustomValidity('');
+    }
+  };
+
+  password.addEventListener('input', validatePassword);
 })();
